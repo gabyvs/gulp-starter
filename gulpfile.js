@@ -5,13 +5,15 @@ const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 const imageMin = require('gulp-imagemin');
 
+// Minifying images
 gulp.task('images', () => {
     gulp.src(['src/img/**/*'])
         .pipe(imageMin())
         .pipe(gulp.dest('dist/img'))
         .pipe(browserSync.stream());
-})
+});
 
+// Minifying css and adding sourcemaps
 gulp.task('styles', () => {
     gulp.src(['src/styles/**/*.css'])
         .pipe(sourcemaps.init())
@@ -21,6 +23,7 @@ gulp.task('styles', () => {
         .pipe(browserSync.stream());
 });
 
+// uglifying javascript and adding sourcemaps
 gulp.task('scripts', () => {
     gulp.src(['src/scripts/main.js'])
         .pipe(sourcemaps.init())
@@ -30,6 +33,7 @@ gulp.task('scripts', () => {
         .pipe(browserSync.stream())
 });
 
+// observing changes in the files and reloading browser
 gulp.task('default', () => {
     browserSync.init({
         server: './'
