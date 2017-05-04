@@ -4,6 +4,7 @@ const minifyCss = require('gulp-minify-css');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 const imageMin = require('gulp-imagemin');
+const less = require('gulp-less');
 
 // Minifying images
 gulp.task('images', () => {
@@ -15,8 +16,9 @@ gulp.task('images', () => {
 
 // Minifying css and adding sourcemaps
 gulp.task('styles', () => {
-    gulp.src(['src/styles/**/*.css'])
+    gulp.src(['src/styles/**/main.less'])
         .pipe(sourcemaps.init())
+        .pipe(less())
         .pipe(minifyCss())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist/styles'))
@@ -38,7 +40,7 @@ gulp.task('default', () => {
     browserSync.init({
         server: './'
     });
-    gulp.watch('src/styles/**/*.css', ['styles']);
+    gulp.watch('src/styles/**/*.less', ['styles']);
     gulp.watch('src/img/**/*', ['images']);
     gulp.watch('src/scripts/**/*.js', ['scripts']);
     gulp.watch('*.html', browserSync.reload);
