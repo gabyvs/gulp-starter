@@ -8,16 +8,16 @@ const uglify        = require('gulp-uglify');
 
 /********** IMAGES *********************
  *
- * Read original image files from /src/img/ folder
+ * Read original image files from /src/images/ folder
  * Pass them trough imageMin
- * Save the minified images into dist/img subfolder
+ * Save the minified images into dist/images subfolder
  * Continue with browserSync logic only after all previous things have finished
  *
  ***************************************/
 gulp.task('images', () => {
-    gulp.src(['src/img/**/*'])
+    gulp.src(['src/images/**/*'])
         .pipe(imageMin())
-        .pipe(gulp.dest('dist/img'))
+        .pipe(gulp.dest('dist/images'))
         .pipe(browserSync.stream());
 });
 
@@ -76,7 +76,7 @@ gulp.task('default', () => {
         server: './'
     });
     gulp.watch('src/styles/**/*.less', ['styles']);
-    gulp.watch('src/img/**/*', ['images']);
+    gulp.watch('src/images/**/*', ['images']);
     gulp.watch('src/scripts/**/*.js', ['scripts']);
     gulp.watch('*.html', browserSync.reload);
 });
