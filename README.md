@@ -13,13 +13,38 @@ Since you cannot always install gulp globally, this one uses local gulp to run a
  
 ## To use it
 
-* Clone this repo into a folder named as your project and cd into it
+* Clone this repo and save it in a folder named as your project
 
 ```
-git clone https://github.com/gabyvs/gulp-starter my-project-name && cd $_
+git clone https://github.com/gabyvs/gulp-starter your-project-name && cd $_
+```
+    
+* Remove all the history of the current project (this project will be used as starting point)
+    
+```
+rm -rf .git
 ```
 
-* Create your own repo from it by running `rm -rf .git` and then run `git init`
-* Install its dependencies by running either `yarn` or `npm install`
-* Run `yarn gulp` or `npm run gulp` to run the tasks defined in `gulpfile.js`
-* Start writing your application code in index.html or src folder
+* Start a new repository for your project
+
+```
+git init
+```
+    
+* Install all the dependencies
+    
+```
+yarn
+``` 
+
+* Run the tasks defined in `gulpfile.js`
+
+```
+yarn gulp
+```
+
+**Note:** If you don't use yarn, you can also run `npm install` and `npm run gulp` instead
+
+And now your setup is ready and you can start writing your application code in src folder.
+
+Enjoy!
