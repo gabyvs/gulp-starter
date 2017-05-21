@@ -6,7 +6,8 @@ This project uses gulp to automate some tasks that are useful for front end deve
 * Minify images (with *gulp-imagemin*)
 * Preprocess Less files, compile them into CSS (with *gulp-less*)
 * Minify CSS and adding sourcemaps (with *gulp-minify-css* and *gulp-sourcemaps*)
-* Uglify javascript and adding sourcemaps (with *gulp-uglify* and *gulp-sourcemaps*)
+* Build a single bundled javascript file while allowing us to write modular applications (with *browserify,* *vinyl-buffer* and *vinyl-source-stream*) 
+* Uglify final javascript and adding sourcemaps (with *gulp-uglify* and *gulp-sourcemaps*)
 * Observing changes in files and making them available immediately in the browser (with *browser-sync*)
 
 Since you cannot always install gulp globally, this one uses the project local gulp to run all these tasks.
